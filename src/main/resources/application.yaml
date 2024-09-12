@@ -1,0 +1,30 @@
+camunda.bpm:
+  admin-user:
+    id: demo
+    password: demo
+    firstName: Demo
+    lastName: Demo
+  filter:
+    create: All Tasks
+  authorization:
+    enabled: false
+
+logging:
+  level:
+    org.camunda: INFO
+    com.camunda.example.oauth2: DEBUG
+
+spring:
+  cloud:
+    azure:
+      active-directory:
+        enabled: true
+        profile:
+          tenant-id: # Azure AD tenant ID
+        credential:
+          client-id: # App Client ID
+          client-secret: # App Client Secret
+
+spring.security.oauth2.client:.registration.azure.client-id: #client-di
+spring.security.oauth2.client.registration.azure.client-secret: #client-secret
+spring.security.oauth2.client.provider.azure.issuer-uri: "https://login.microsoftonline.com/<tenant>/v2.0"
